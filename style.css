@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    gap: 5px;
+    background-color: black;
+}
+
+.cell {
+    width: 20dvh;
+    height: 20dvh;
+    background-color: lightblue;
+}
+
+.cell:hover {
+    background-color: red;
+}
