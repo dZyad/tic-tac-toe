@@ -46,11 +46,45 @@ function GameController(
         console.log(`${getActivePlayer().name}'s turn.`);
     };
 
+    const checkWinner = () => {
+        const currentBoard = board.getBoard();
+
+        for (let i = 0; i < 3 ; i++ ) {
+            if ( currentBoard[i][0] !== '' && currentBoard[i][0] === currentBoard[i][1] && currentBoard[i][1] === currentBoard[i][2]) {
+                return currentBoard[i][0];
+            }
+        }
+
+        for (let i = 0; i < 3 ; i++ ) {
+            if ( currentBoard[0][i] !== '' && currentBoard[0][i] === currentBoard[1][i] && currentBoard[1][i] === currentBoard[2][i]) {
+                return currentBoard[0][i];
+            }
+        }
+
+        if ( currentBoard[0][0] !== '' && currentBoard[0][0] === currentBoard[1][1] && currentBoard[1][1] === currentBoard[2][2] ) {
+            return currentBoard[0][0];
+        }
+
+        if ( currentBoard[2][0] !== '' && currentBoard[2][0] === currentBoard[1][1] && currentBoard[1][1] === currentBoard[0][2] ) {
+            return currentBoard[2][0];
+        }
+
+        return;
+    }
+
     const playRound = (cell) => {
         console.log(
             `${getActivePlayer().name} place ${getActivePlayer().token} in cell [${cell}]`
         );
         board.placeToken(cell, getActivePlayer().token);
+
+        const winner = checkWinner();
+
+        if (winner) {
+            printNewRound();
+            console.log(`${getActivePlayer().name} won!`);
+            return;
+        }
 
         switchPlayerTurn();
         printNewRound();
