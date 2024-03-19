@@ -1,26 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap');
+
+:root {
+    --pink-50: #fce7f3;
+    --zinc-100: #f4f4f5;
+    --zinc-900: #18181b;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
+    background-color: var(--zinc-100);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    font-family: "Gluten", cursive;
+    gap: 1rem;
+    min-height: 100vh;
+}
+
+header h1 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.info {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    font-weight: 900;
 }
 
 #board {
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     gap: 5px;
-    background-color: black;
+    background-color: var(--zinc-900);
 }
 
 .cell {
     width: 20dvh;
     height: 20dvh;
-    background-color: lightblue;
+    background-color: var(--zinc-100);
     font-size: 20dvh;
     text-align: center;
     vertical-align: middle;
@@ -28,5 +51,17 @@ body {
 }
 
 .cell:hover {
-    background-color: red;
+    background-color: var(--pink-50);
+}
+
+#restartButton {
+    font-size: 2rem;
+    font-family: "Gluten";
+    padding: 10px;
+    border-radius: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
