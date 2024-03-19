@@ -21,6 +21,10 @@ body {
     width: 20dvh;
     height: 20dvh;
     background-color: lightblue;
+    font-size: 20dvh;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20dvh;
 }
 
 .cell:hover {
